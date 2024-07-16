@@ -101,9 +101,9 @@ while x:
             f.write("Produse: ")
             total_facutra = 0
             for produs in lista:
-                p = Produs()
-                f.write(f"{produs} ... Cantitate: {cantitate_produs} ... Pret unitar: {pret_unitar_produs} ... Pret total pentru acest produs: {cantitate_produs * pret_unitar_produs}")
-                total_facutra += pret_unitar_produs * cantitate_produs
+                p = session.query(Produs).filter(Produs.denumire==produs).first()
+                f.write(f"{produs} ... Cantitate: {p.cantitate} ... Pret unitar: {p.pret_unitar} ... Pret total pentru acest produs: {p.cantitate * p.pret_unitar}")
+                total_facutra += p.pret_unitar * p.cantitate
             f.write(f"Total plata: {total_facutra}")
     if optiune == 4:
         client_de_sters = input("Introduceti CUI-ul clientului pe care doriti sa il stergeti!")
