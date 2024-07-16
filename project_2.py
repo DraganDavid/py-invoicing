@@ -101,9 +101,7 @@ while x:
             f.write("Produse: ")
             total_facutra = 0
             for produs in lista:
-                p = Produs(
-
-                )
+                p = Produs()
                 f.write(f"{produs} ... Cantitate: {cantitate_produs} ... Pret unitar: {pret_unitar_produs} ... Pret total pentru acest produs: {cantitate_produs * pret_unitar_produs}")
                 total_facutra += pret_unitar_produs * cantitate_produs
             f.write(f"Total plata: {total_facutra}")
